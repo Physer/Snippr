@@ -1,60 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Humanizer;
 using MongoDB.Driver;
+using Snippr.Core.Models;
 using Snippr.Core.Repositories;
 
 namespace Snippr.Data.Mongo.Repositories
 {
     public class MongoRepository : IRepository
     {
-        private readonly MongoClient _client;
         private readonly IMongoDatabase _database;
         public MongoRepository(MongoClient client)
         {
-            _client = client;
             //TODO: Move the database name to a config file
             _database = client.GetDatabase("snippr");
         }
-
-        public T Find<T>(params object[] keyValues) where T : class
+        public T FirstOrDefault<T>(Func<T, bool> predicate) where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            return GetCollection<T>().AsQueryable().FirstOrDefault(predicate);
         }
 
-        public T FirstOrDefault<T>(Func<T, bool> predicate) where T : class, new()
+        public IQueryable<T> GetMany<T>() where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            return GetCollection<T>().AsQueryable();
         }
 
-        public IQueryable<T> GetMany<T>() where T : class, new()
+        public IQueryable<T> GetMany<T>(Func<T, bool> predicate) where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            return GetCollection<T>().AsQueryable().Where(predicate).AsQueryable();
         }
 
-        public IQueryable<T> GetMany<T>(Func<T, bool> predicate) where T : class, new()
+        public void Add<T>(T entity) where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            if(entity != null)
+                GetCollection<T>().InsertOne(entity);
         }
 
-        public void Add<T>(T entity) where T : class, new()
+        public void AddRange<T>(IEnumerable<T> entities) where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            if(entities.Any())
+                GetCollection<T>().InsertMany(entities);
         }
 
-        public void AddRange<T>(IEnumerable<T> entities) where T : class, new()
+        public void Remove<T>(T entity) where T : class, IMongoModel, new()
         {
-            throw new NotImplementedException();
+            if (entity != null)
+            {
+                var filter = Builders<T>.Filter.Eq("_id", entity.Id);
+                GetCollection<T>().DeleteOne(filter);
+            }
         }
 
-        public void Remove<T>(T entity) where T : class, new()
+        private IMongoCollection<T> GetCollection<T>()
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveRange<T>(IEnumerable<T> entities) where T : class, new()
-        {
-            throw new NotImplementedException();
+            return _database.GetCollection<T>(typeof (T).Name.Pluralize());
         }
     }
 }

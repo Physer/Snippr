@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesModule.cs" />
+    <Compile Include="Snippets\ISnippetService.cs" />
+    <Compile Include="Snippets\SnippetService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datasources\Snippr.Data.Mongo\Snippr.Data.Mongo.csproj">

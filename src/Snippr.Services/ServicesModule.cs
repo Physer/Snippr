@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Snippr.Data.Mongo;
+using Snippr.Services.Snippets;
 
 namespace Snippr.Services
 {
@@ -8,6 +9,8 @@ namespace Snippr.Services
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule<MongoModule>();
+
+            builder.RegisterType<SnippetService>().As<ISnippetService>();
         }
     }
 }
