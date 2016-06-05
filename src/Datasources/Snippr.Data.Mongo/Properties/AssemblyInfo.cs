@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Snippr.Data")]
+[assembly: AssemblyTitle("Snippr.Data.Mongo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Snippr.Data")]
+[assembly: AssemblyProduct("Snippr.Data.Mongo")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fdbcc6f0-4358-4918-b3db-37d6883159bd")]
+[assembly: Guid("fa72778c-1d0b-4efd-a127-baed46ddf0eb")]
 
 // Version information for an assembly consists of the following four values:
 //
