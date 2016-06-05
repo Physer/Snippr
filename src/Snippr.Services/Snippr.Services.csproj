@@ -48,13 +48,13 @@
     <Compile Include="ServicesModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datasources\Snippr.Data.Mongo\Snippr.Data.Mongo.csproj">
+      <Project>{fa72778c-1d0b-4efd-a127-baed46ddf0eb}</Project>
+      <Name>Snippr.Data.Mongo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Snippr.Core\Snippr.Core.csproj">
       <Project>{d5317fbf-8428-41e0-8251-dab6b152f0d2}</Project>
       <Name>Snippr.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Snippr.Data\Snippr.Data.csproj">
-      <Project>{fdbcc6f0-4358-4918-b3db-37d6883159bd}</Project>
-      <Name>Snippr.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
