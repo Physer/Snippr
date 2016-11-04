@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
+using Snippr.API.App_Start;
 
 namespace Snippr.API
 {
@@ -10,6 +11,7 @@ namespace Snippr.API
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            ContainerConfig.Register();
         }
     }
 }
