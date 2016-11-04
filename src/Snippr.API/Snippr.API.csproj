@@ -142,7 +142,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Snippr.Domain\Snippr.Domain.csproj">
+      <Project>{01ea5bd2-67dc-4221-b6bc-ffa76917176d}</Project>
+      <Name>Snippr.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snippr.Services\Snippr.Services.csproj">
+      <Project>{b6dd3f44-ed26-4374-ab14-b3096ab8de9b}</Project>
+      <Name>Snippr.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
