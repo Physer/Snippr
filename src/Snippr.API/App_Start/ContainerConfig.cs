@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using System.Web.Http;
+using Autofac;
+using Autofac.Integration.WebApi;
 using Snippr.Services;
 
 namespace Snippr.API.App_Start
@@ -9,6 +12,12 @@ namespace Snippr.API.App_Start
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<SnipprModule>();
+
+
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            var config = GlobalConfiguration.Configuration;
+            var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }

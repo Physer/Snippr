@@ -2,7 +2,7 @@
 
 namespace Snippr.Domain.Models
 {
-    public class CodeSnippet
+    public class CodeSnippet : DatabaseModel
     {
         public string Code { get; set; }
         public int Upvotes { get; set; }

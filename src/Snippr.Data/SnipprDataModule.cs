@@ -7,7 +7,8 @@ namespace Snippr.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<SnipprRepository>().As<IRepository>();
+            builder.RegisterType<SnipprContext>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<SnipprRepository>().AsImplementedInterfaces();
         }
     }
 }

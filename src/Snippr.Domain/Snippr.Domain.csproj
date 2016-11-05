@@ -45,6 +45,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CodeSnippet.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\DatabaseModel.cs" />
+    <Compile Include="Models\IDatabaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

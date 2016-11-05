@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Snippr.Data;
+using Snippr.Services.Codes;
 
 namespace Snippr.Services
 {
@@ -11,6 +12,7 @@ namespace Snippr.Services
             builder.RegisterModule<SnipprDataModule>();
 
             //Register services
+            builder.RegisterType<CodeService>().As<ICodeService>();
         }
     }
 }
