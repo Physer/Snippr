@@ -1,6 +1,6 @@
 ﻿namespace Snippr.Domain.Models
 {
-    public class Comment : DatabaseModel
+    public class Comment
     {
         public Author Author { get; set; }
         public int Upvotes { get; set; }

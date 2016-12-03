@@ -56,11 +56,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\DataClient.cs" />
+    <Compile Include="Clients\IDataClient.cs" />
+    <Compile Include="Models\AuthorIndexModel.cs" />
+    <Compile Include="Models\CategoryIndexModel.cs" />
+    <Compile Include="Models\CodeSnippetIndexModel.cs" />
+    <Compile Include="Models\CommentIndexModel.cs" />
     <Compile Include="SnipprDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
