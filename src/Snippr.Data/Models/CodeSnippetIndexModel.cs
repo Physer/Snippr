@@ -6,11 +6,11 @@ namespace Snippr.Data.Models
 {
     public class CodeSnippetIndexModel
     {
-        [Keyword]
+        [String]
         public Guid Id { get; set; }
-        [Text]
+        [String]
         public string Code { get; set; }
-        [Keyword]
+        [String]
         public int Upvotes { get; set; }
         public AuthorIndexModel Author { get; set; }
         public IEnumerable<CategoryIndexModel> Categories { get; set; }

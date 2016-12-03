@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Nest;
 using Snippr.Data.Clients;
 
 namespace Snippr.Data
@@ -8,7 +9,8 @@ namespace Snippr.Data
         protected override void Load(ContainerBuilder builder)
         {
             //Register types
-            builder.RegisterType<DataClient>().As<IDataClient>();
+            builder.RegisterType<ElasticClient>().AsSelf();
+            builder.RegisterType<DataClient>().AsImplementedInterfaces();
         }
     }
 }

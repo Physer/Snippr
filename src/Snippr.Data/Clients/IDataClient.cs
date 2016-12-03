@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Snippr.Data.Clients
+﻿namespace Snippr.Data.Clients
 {
     public interface IDataClient
     {
+        void CreateIndex(string indexName);
     }
 }

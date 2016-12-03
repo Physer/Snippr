@@ -16,6 +16,7 @@ namespace Snippr.API.App_Start
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var config = GlobalConfiguration.Configuration;
+            builder.RegisterWebApiFilterProvider(config);
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }

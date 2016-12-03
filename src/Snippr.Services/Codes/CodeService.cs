@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Snippr.Data.Clients;
 using Snippr.Domain;
 using Snippr.Domain.Models;
 
@@ -13,6 +14,13 @@ namespace Snippr.Services.Codes
         //{
         //    _repository = repository;
         //}
+
+        private readonly IDataClient _dataClient;
+
+        public CodeService(IDataClient dataClient)
+        {
+            _dataClient = dataClient;
+        }
 
         public void AddCodeSnippet(CodeSnippet codeSnippet)
         {
@@ -30,7 +38,7 @@ namespace Snippr.Services.Codes
 
         public IEnumerable<CodeSnippet> GetCodeSnippets()
         {
-            throw new NotImplementedException();
+            return new List<CodeSnippet>();
             //return _repository.GetMany<CodeSnippet>();
         }
     }
