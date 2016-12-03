@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Snippr.Data.Repositories;
 
 namespace Snippr.Data
 {
@@ -7,8 +6,7 @@ namespace Snippr.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<SnipprContext>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<SnipprRepository>().AsImplementedInterfaces();
+            //Register types
         }
     }
 }
