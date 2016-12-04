@@ -58,7 +58,7 @@
       <Name>Snippr.API</Name>
     </ProjectReference>
     <ProjectReference Include="..\Snippr.Data\Snippr.Data.csproj">
-      <Project>{3341d09d-f96d-47b9-9bbf-214c61758e93}</Project>
+      <Project>{bc8c954e-cef9-4b3e-8b12-9b511aea161a}</Project>
       <Name>Snippr.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Snippr.Domain\Snippr.Domain.csproj">

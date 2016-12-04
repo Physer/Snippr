@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Nest;
+using Snippr.Data.Clients;
 using Snippr.Data.Repositories;
 
 namespace Snippr.Data
@@ -7,8 +9,10 @@ namespace Snippr.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<SnipprContext>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<SnipprRepository>().AsImplementedInterfaces();
+            //Register types
+            builder.RegisterType<ElasticClient>().AsSelf();
+            builder.RegisterType<IndexClient>().AsImplementedInterfaces();
+            builder.RegisterType<ElasticRepository>().AsImplementedInterfaces();
         }
     }
 }

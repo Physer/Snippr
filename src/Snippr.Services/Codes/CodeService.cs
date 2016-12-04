@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using Snippr.Data.Models;
 using Snippr.Data.Repositories;
 using Snippr.Domain;
 using Snippr.Domain.Models;
@@ -8,11 +11,11 @@ namespace Snippr.Services.Codes
 {
     public class CodeService : ICodeService
     {
-        private readonly IRepository _repository;
+        private readonly IElasticRepository _elasticRepository;
 
-        public CodeService(IRepository repository)
+        public CodeService(IElasticRepository elasticRepository)
         {
-            _repository = repository;
+            _elasticRepository = elasticRepository;
         }
 
         public void AddCodeSnippet(CodeSnippet codeSnippet)
@@ -20,18 +23,26 @@ namespace Snippr.Services.Codes
             if (string.IsNullOrWhiteSpace(codeSnippet.Code))
                 throw new ArgumentNullException(Constants.ExceptionConstants.NoCodeSupplied);
 
-            _repository.Add(codeSnippet);
-            _repository.SaveChanges();
+            var codeSnippetIndexModel = Mapper.Map<CodeSnippetIndexModel>(codeSnippet);
+            _elasticRepository.Add(codeSnippetIndexModel);
         }
 
         public void RemoveCodeSnippet(CodeSnippet codeSnippet)
         {
-            _repository.Remove(codeSnippet);
+            var codeSnippetIndexModel = Mapper.Map<CodeSnippetIndexModel>(codeSnippet);
+            _elasticRepository.Delete(codeSnippetIndexModel);
         }
 
         public IEnumerable<CodeSnippet> GetCodeSnippets()
         {
-            return _repository.GetMany<CodeSnippet>();
+            var codeIndexModels = _elasticRepository.GetAll<CodeSnippetIndexModel>();
+            return new List<CodeSnippet>(codeIndexModels.Select(x => new CodeSnippet
+            {
+                Code = x.Code,
+                Upvotes = x.Upvotes
+            }));
         }
+
+
     }
 }
