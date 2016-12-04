@@ -14,7 +14,7 @@ namespace Snippr.API.Controllers
         }
 
         [HttpPost]
-        [Route(Name = "index")]
+        [Route("api/admin/index/{indexname}")]
         public void CreateIndex(string indexName)
         {
             if (string.IsNullOrWhiteSpace(indexName)) throw new ArgumentNullException();
