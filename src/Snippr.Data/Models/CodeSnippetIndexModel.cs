@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 namespace Snippr.Data.Models
 {
-    public class CodeSnippetIndexModel
+    public class CodeSnippetIndexModel : IndexModel
     {
-        [String]
-        public Guid Id { get; set; }
         [String]
         public string Code { get; set; }
         [String]

@@ -1,6 +1,6 @@
 ﻿namespace Snippr.Data.Models
 {
-    public class CategoryIndexModel
+    public class CategoryIndexModel : IndexModel
     {
     }
 }

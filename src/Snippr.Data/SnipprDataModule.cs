@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Nest;
 using Snippr.Data.Clients;
+using Snippr.Data.Repositories;
 
 namespace Snippr.Data
 {
@@ -11,6 +12,7 @@ namespace Snippr.Data
             //Register types
             builder.RegisterType<ElasticClient>().AsSelf();
             builder.RegisterType<IndexClient>().AsImplementedInterfaces();
+            builder.RegisterType<ElasticRepository>().AsImplementedInterfaces();
         }
     }
 }
