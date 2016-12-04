@@ -48,8 +48,8 @@
     <Compile Include="Codes\CodeService.cs" />
     <Compile Include="Codes\ICodeService.cs" />
     <Compile Include="Comments\CommentService.cs" />
-    <Compile Include="Data\DataService.cs" />
-    <Compile Include="Data\IDataService.cs" />
+    <Compile Include="Data\IndexService.cs" />
+    <Compile Include="Data\IIndexService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SnipprModule.cs" />
   </ItemGroup>

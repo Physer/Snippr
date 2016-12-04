@@ -56,8 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\DataClient.cs" />
-    <Compile Include="Clients\IDataClient.cs" />
+    <Compile Include="Clients\IndexClient.cs" />
+    <Compile Include="Clients\IIndexClient.cs" />
     <Compile Include="Models\AuthorIndexModel.cs" />
     <Compile Include="Models\CategoryIndexModel.cs" />
     <Compile Include="Models\CodeSnippetIndexModel.cs" />

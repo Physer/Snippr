@@ -15,9 +15,9 @@ namespace Snippr.Services.Codes
         //    _repository = repository;
         //}
 
-        private readonly IDataClient _dataClient;
+        private readonly IIndexClient _dataClient;
 
-        public CodeService(IDataClient dataClient)
+        public CodeService(IIndexClient dataClient)
         {
             _dataClient = dataClient;
         }

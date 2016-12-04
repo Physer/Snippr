@@ -10,7 +10,7 @@ namespace Snippr.Data
         {
             //Register types
             builder.RegisterType<ElasticClient>().AsSelf();
-            builder.RegisterType<DataClient>().AsImplementedInterfaces();
+            builder.RegisterType<IndexClient>().AsImplementedInterfaces();
         }
     }
 }

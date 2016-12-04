@@ -1,7 +1,8 @@
 ﻿namespace Snippr.Data.Clients
 {
-    public interface IDataClient
+    public interface IIndexClient
     {
         void CreateIndex(string indexName);
+        void DeleteIndex(string indexName);
     }
 }

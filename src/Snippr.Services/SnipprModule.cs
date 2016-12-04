@@ -14,7 +14,7 @@ namespace Snippr.Services
 
             //Register services
             builder.RegisterType<CodeService>().AsImplementedInterfaces();
-            builder.RegisterType<DataService>().AsImplementedInterfaces();
+            builder.RegisterType<IndexService>().AsImplementedInterfaces();
         }
     }
 }
