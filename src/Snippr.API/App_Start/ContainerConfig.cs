@@ -4,7 +4,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using Snippr.Services;
 
-namespace Snippr.API.App_Start
+namespace Snippr.API
 {
     public static class ContainerConfig
     {

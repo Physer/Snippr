@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using AutoMapper;
-using Snippr.API.App_Start;
 using Snippr.Services.Mappers;
 
 namespace Snippr.API
