@@ -5,15 +5,16 @@ using AutoMapper;
 using Snippr.Data.Models;
 using Snippr.Data.Repositories;
 using Snippr.Domain;
-using Snippr.Domain.Models;
+using Snippr.Domain.Models.API;
+using Snippr.Domain.Models.Business;
 
-namespace Snippr.Services.Codes
+namespace Snippr.Services.Code_snippets
 {
-    public class CodeService : ICodeService
+    public class CodeSnippetService : ICodeSnippetService
     {
         private readonly IElasticRepository _elasticRepository;
 
-        public CodeService(IElasticRepository elasticRepository)
+        public CodeSnippetService(IElasticRepository elasticRepository)
         {
             _elasticRepository = elasticRepository;
         }
@@ -27,6 +28,17 @@ namespace Snippr.Services.Codes
             _elasticRepository.Add(codeSnippetIndexModel);
         }
 
+        public void EditCodeSnippet(CodeSnippetEditRequestModel codeSnippetEditRequestModel)
+        {
+            var existingCodeSnippet = _elasticRepository.Get<CodeSnippetIndexModel>(codeSnippetEditRequestModel.Id);
+            if(existingCodeSnippet == null)
+                throw new Exception(Constants.ExceptionConstants.NoSnippetFound);
+
+            existingCodeSnippet.Code = codeSnippetEditRequestModel.Code;
+            existingCodeSnippet.Author = Mapper.Map<AuthorIndexModel>(codeSnippetEditRequestModel.OriginalAuthor);
+            _elasticRepository.Edit(existingCodeSnippet);
+        }
+
         public void RemoveCodeSnippet(CodeSnippet codeSnippet)
         {
             var codeSnippetIndexModel = Mapper.Map<CodeSnippetIndexModel>(codeSnippet);
@@ -38,6 +50,7 @@ namespace Snippr.Services.Codes
             var codeIndexModels = _elasticRepository.GetAll<CodeSnippetIndexModel>();
             return new List<CodeSnippet>(codeIndexModels.Select(x => new CodeSnippet
             {
+                Id = x.Id,
                 Code = x.Code,
                 Upvotes = x.Upvotes
             }));

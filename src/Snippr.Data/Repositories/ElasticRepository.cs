@@ -24,6 +24,14 @@ namespace Snippr.Data.Repositories
                 throw new Exception(result.ServerError.Error.Reason);
         }
 
+        public void Edit<T>(T indexModel, string index = null) where T : IndexModel, new()
+        {
+            var indexToEditIn = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
+            var result = _elasticClient.Index(indexModel, item => item.Index(indexToEditIn));
+            if(!result.IsValid)
+                throw new Exception(result.ServerError.Error.Reason);
+        }
+
         public void Delete<T>(T indexModel, string index = null) where T : IndexModel, new()
         {
             var indexToInsertIn = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
@@ -48,6 +56,15 @@ namespace Snippr.Data.Repositories
             if (!result.IsValid)
                 throw new Exception(result.ServerError.Error.Reason);
             return result.Documents;
+        }
+
+        public T Get<T>(Guid id, string index = null) where T : IndexModel, new()
+        {
+            var indexToGetFrom = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
+            var result = _elasticClient.Get<T>(id, item => item.Index(indexToGetFrom));
+            if(!result.IsValid)
+                throw new Exception(result.ServerError.Error.Reason);
+            return result.Source;
         }
     }
 }

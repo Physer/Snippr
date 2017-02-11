@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Snippr.Data;
-using Snippr.Services.Codes;
+using Snippr.Services.Code_snippets;
 using Snippr.Services.Data;
 
 namespace Snippr.Services
@@ -13,7 +13,7 @@ namespace Snippr.Services
             builder.RegisterModule<SnipprDataModule>();
 
             //Register services
-            builder.RegisterType<CodeService>().AsImplementedInterfaces();
+            builder.RegisterType<CodeSnippetService>().AsImplementedInterfaces();
             builder.RegisterType<IndexService>().AsImplementedInterfaces();
         }
     }
