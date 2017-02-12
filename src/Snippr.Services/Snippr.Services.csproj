@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categories\CategoryService.cs" />
-    <Compile Include="Codes\CodeService.cs" />
-    <Compile Include="Codes\ICodeService.cs" />
+    <Compile Include="Code snippets\CodeSnippetService.cs" />
+    <Compile Include="Code snippets\ICodeSnippetService.cs" />
     <Compile Include="Comments\CommentService.cs" />
     <Compile Include="Data\IndexService.cs" />
     <Compile Include="Data\IIndexService.cs" />

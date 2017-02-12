@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Snippr.Data.Models;
-using Snippr.Domain.Models;
+using Snippr.Domain.Models.Business;
 
 namespace Snippr.Services.Mappers
 {
@@ -17,7 +17,7 @@ namespace Snippr.Services.Mappers
                 ;
 
             CreateMap<CodeSnippet, CodeSnippetIndexModel>()
-                .ForMember(output => output.Id, input => input.Ignore())
+                .ForMember(output => output.Id, input => input.MapFrom(src => src.Id))
                 .ForMember(output => output.Code, input => input.MapFrom(src => src.Code))
                 .ForMember(output => output.Upvotes, input => input.MapFrom(src => src.Upvotes))
                 .ForMember(output => output.Author, input => input.Ignore())

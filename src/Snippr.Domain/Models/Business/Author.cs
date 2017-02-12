@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Snippr.Domain.Models
+namespace Snippr.Domain.Models.Business
 {
     public class Author
     {
