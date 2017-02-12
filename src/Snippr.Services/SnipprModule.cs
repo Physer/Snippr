@@ -2,6 +2,7 @@
 using Snippr.Data;
 using Snippr.Services.Code_snippets;
 using Snippr.Services.Data;
+using Snippr.Services.Users;
 
 namespace Snippr.Services
 {
@@ -15,6 +16,7 @@ namespace Snippr.Services
             //Register services
             builder.RegisterType<CodeSnippetService>().AsImplementedInterfaces();
             builder.RegisterType<IndexService>().AsImplementedInterfaces();
+            builder.RegisterType<UserService>().AsImplementedInterfaces();
         }
     }
 }

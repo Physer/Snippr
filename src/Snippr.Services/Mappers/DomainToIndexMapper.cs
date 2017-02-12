@@ -27,6 +27,13 @@ namespace Snippr.Services.Mappers
             CreateMap<Comment, CommentIndexModel>()
                 .ForMember(output => output.Id, input => input.Ignore())
                 ;
+
+            CreateMap<User, UserIndexModel>()
+                .ForMember(output => output.Id, input => input.MapFrom(src => src.Id))
+                .ForMember(output => output.Username, input => input.MapFrom(src => src.Username))
+                .ForMember(output => output.EmailAddress, input => input.MapFrom(src => src.EmailAddress))
+                .ForMember(output => output.HashedPassword, input => input.MapFrom(src => src.HashedPassword))
+                ;
         }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Models\CodeSnippetIndexModel.cs" />
     <Compile Include="Models\CommentIndexModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\UserIndexModel.cs" />
     <Compile Include="Repositories\ElasticRepository.cs" />
     <Compile Include="Repositories\IElasticRepository.cs" />
     <Compile Include="SnipprDataModule.cs" />

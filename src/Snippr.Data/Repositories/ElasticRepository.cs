@@ -21,7 +21,7 @@ namespace Snippr.Data.Repositories
             var indexToInsertIn = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Index(indexModel, item => item.Index(indexToInsertIn));
             if (!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
         }
 
         public void Edit<T>(T indexModel, string index = null) where T : IndexModel, new()
@@ -29,7 +29,7 @@ namespace Snippr.Data.Repositories
             var indexToEditIn = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Index(indexModel, item => item.Index(indexToEditIn));
             if(!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
         }
 
         public void Delete<T>(T indexModel, string index = null) where T : IndexModel, new()
@@ -37,7 +37,7 @@ namespace Snippr.Data.Repositories
             var indexToInsertIn = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Delete<T>(indexModel, item => item.Index(indexToInsertIn));
             if (!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
         }
 
         public IEnumerable<T> GetAll<T>(string index = null) where T: IndexModel, new()
@@ -45,7 +45,7 @@ namespace Snippr.Data.Repositories
             var indexToGetFrom = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Search<T>(item => item.Index(indexToGetFrom));
             if (!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
             return result.Documents;
         }
 
@@ -54,7 +54,7 @@ namespace Snippr.Data.Repositories
             var indexToGetFrom = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Search<T>(item => item.Index(indexToGetFrom).Query(q => q.Term(property.ToString(), searchTerm)));
             if (!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
             return result.Documents;
         }
 
@@ -63,7 +63,7 @@ namespace Snippr.Data.Repositories
             var indexToGetFrom = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
             var result = _elasticClient.Get<T>(id, item => item.Index(indexToGetFrom));
             if(!result.IsValid)
-                throw new Exception(result.ServerError.Error.Reason);
+                throw new Exception(result.OriginalException.Message);
             return result.Source;
         }
     }
