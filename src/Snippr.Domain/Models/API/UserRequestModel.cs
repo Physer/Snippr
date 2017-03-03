@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Security;
 
-namespace Snippr.Domain.Models.Business
+namespace Snippr.Domain.Models.API
 {
-    public class User
+    public class UserRequestModel
     {
         public Guid Id { get; set; }
         public string Username { get; set; }
+        public string Password { get; set; }
         public string EmailAddress { get; set; }
-        public string HashedPassword { get; set; }
     }
 }

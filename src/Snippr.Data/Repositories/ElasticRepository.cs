@@ -49,10 +49,13 @@ namespace Snippr.Data.Repositories
             return result.Documents;
         }
 
-        public IEnumerable<T> Search<T>(object property, string searchTerm, string index = null) where T : IndexModel, new()
+        public IEnumerable<T> Search<T>(string searchTerm, string searchValue, string index = null) where T : IndexModel, new()
         {
             var indexToGetFrom = !string.IsNullOrWhiteSpace(index) ? index : _defaultIndex;
-            var result = _elasticClient.Search<T>(item => item.Index(indexToGetFrom).Query(q => q.Term(property.ToString(), searchTerm)));
+            var result = _elasticClient
+                .Search<T>(query => query
+                    .Index(indexToGetFrom)
+                    .Query(q => q.Term(searchTerm, searchValue)));
             if (!result.IsValid)
                 throw new Exception(result.OriginalException.Message);
             return result.Documents;

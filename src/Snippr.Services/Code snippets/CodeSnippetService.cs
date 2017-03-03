@@ -22,7 +22,7 @@ namespace Snippr.Services.Code_snippets
         public void AddCodeSnippet(CodeSnippet codeSnippet)
         {
             if (string.IsNullOrWhiteSpace(codeSnippet.Code))
-                throw new ArgumentNullException(Constants.ExceptionConstants.NoCodeSupplied);
+                throw new ArgumentNullException(Constants.Exceptions.NoCodeSupplied);
 
             var codeSnippetIndexModel = Mapper.Map<CodeSnippetIndexModel>(codeSnippet);
             _elasticRepository.Add(codeSnippetIndexModel);
@@ -32,7 +32,7 @@ namespace Snippr.Services.Code_snippets
         {
             var existingCodeSnippet = _elasticRepository.Get<CodeSnippetIndexModel>(codeSnippetEditRequestModel.Id);
             if(existingCodeSnippet == null)
-                throw new Exception(Constants.ExceptionConstants.NoSnippetFound);
+                throw new Exception(Constants.Exceptions.NoSnippetFound);
 
             existingCodeSnippet.Code = codeSnippetEditRequestModel.Code;
             existingCodeSnippet.Author = Mapper.Map<AuthorIndexModel>(codeSnippetEditRequestModel.OriginalAuthor);

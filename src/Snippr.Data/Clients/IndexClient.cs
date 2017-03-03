@@ -1,5 +1,6 @@
 ﻿using System;
 using Nest;
+using Snippr.Data.Models;
 
 namespace Snippr.Data.Clients
 {
@@ -14,7 +15,11 @@ namespace Snippr.Data.Clients
 
         public void CreateIndex(string indexName)
         {
-            var result = _elasticClient.CreateIndex(indexName);
+            //Create an Index, manually specificy the IndexModel if attributes are applied or manual mapping is necessary
+            var result = _elasticClient.CreateIndex(indexName,
+                x => x.Mappings(
+                    m => m.Map<UserIndexModel>(y => y.AutoMap()))
+                    );
             if(!result.IsValid)
                 throw new Exception(result.ServerError.Error.Reason);
         }
