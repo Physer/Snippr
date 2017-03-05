@@ -14,12 +14,11 @@ namespace Snippr.API.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
-        public IHttpActionResult Get()
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Register a user based on a user registration model
+        /// </summary>
+        /// <param name="userRequestModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public IHttpActionResult Post([FromBody] UserRequestModel userRequestModel)
         {

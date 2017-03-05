@@ -1,11 +1,10 @@
 ﻿using Snippr.Domain.Models.API;
-using Snippr.Domain.Models.Business;
 
 namespace Snippr.Services.Users
 {
     public interface IUserService
     {
-        void Login(User user);
+        bool Login(LoginRequestModel loginRequestModel);
         void Register(UserRequestModel userRequestModel);
     }
 }

@@ -32,14 +32,12 @@ namespace Snippr.Services.Mappers
 
             CreateMap<User, UserIndexModel>()
                 .ForMember(output => output.Id, input => input.MapFrom(src => src.Id == Guid.Empty ? Guid.NewGuid() : src.Id))
-                .ForMember(output => output.Username, input => input.MapFrom(src => src.Username))
                 .ForMember(output => output.EmailAddress, input => input.MapFrom(src => src.EmailAddress))
                 .ForMember(output => output.HashedPassword, input => input.MapFrom(src => src.HashedPassword))
                 ;
 
             CreateMap<UserRequestModel, UserIndexModel>()
                 .ForMember(output => output.Id, input => input.MapFrom(src => src.Id == Guid.Empty ? Guid.NewGuid() : src.Id))
-                .ForMember(output => output.Username, input => input.MapFrom(src => src.Username))
                 .ForMember(output => output.EmailAddress, input => input.MapFrom(src => src.EmailAddress))
                 .ForMember(output => output.CreatedAt, input => input.MapFrom(src => DateTime.UtcNow))
                 .ForMember(output => output.HashedPassword, input => input.Ignore())

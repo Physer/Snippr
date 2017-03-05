@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Models\API\CodeSnippetEditRequestModel.cs" />
+    <Compile Include="Models\API\LoginRequestModel.cs" />
     <Compile Include="Models\API\UserRequestModel.cs" />
     <Compile Include="Models\Business\Author.cs" />
     <Compile Include="Models\Business\Category.cs" />
