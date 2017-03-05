@@ -36,10 +36,13 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Models\API\CodeSnippetEditRequestModel.cs" />
+    <Compile Include="Models\API\LoginRequestModel.cs" />
+    <Compile Include="Models\API\UserRequestModel.cs" />
     <Compile Include="Models\Business\Author.cs" />
     <Compile Include="Models\Business\Category.cs" />
     <Compile Include="Models\Business\CodeSnippet.cs" />
     <Compile Include="Models\Business\Comment.cs" />
+    <Compile Include="Models\Business\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

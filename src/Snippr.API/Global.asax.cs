@@ -17,7 +17,7 @@ namespace Snippr.API
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile<DomainToIndexMapper>();
+                cfg.AddProfile<IndexMapper>();
             });
         }
     }
