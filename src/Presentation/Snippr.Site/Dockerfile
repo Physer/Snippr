@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Snippr.Site/Snippr.Site.csproj", "Snippr.Site/"]
-RUN dotnet restore "Snippr.Site/Snippr.Site.csproj"
+COPY ["src/Presentation/Snippr.Site/Snippr.Site.csproj", "src/Presentation/Snippr.Site/"]
+RUN dotnet restore "src/Presentation/Snippr.Site/Snippr.Site.csproj"
 COPY . .
-WORKDIR "/src/Snippr.Site"
+WORKDIR "/src/src/Presentation/Snippr.Site"
 RUN dotnet build "Snippr.Site.csproj" -c Release -o /app/build
 
 FROM build AS publish

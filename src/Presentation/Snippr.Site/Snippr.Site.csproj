@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
-    <UserSecretsId>b121ac32-f6cf-44a8-8415-20e99418a179</UserSecretsId>
+    <UserSecretsId>077cbe01-5e66-4af4-8cab-ddcec24bbae3</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
