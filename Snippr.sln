@@ -9,17 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snippr.Site", "src\Presenta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8481BB60-1EA8-4653-960B-F58D047AAC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snippr.Domain", "src\Core\Snippr.Domain\Snippr.Domain.csproj", "{90D59A7F-D7FE-4C48-9EC1-B5110517E392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snippr.Domain", "src\Core\Snippr.Domain\Snippr.Domain.csproj", "{90D59A7F-D7FE-4C48-9EC1-B5110517E392}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snippr.Application", "src\Core\Snippr.Application\Snippr.Application.csproj", "{DBC5A6B2-E699-4542-B606-AB20727824F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snippr.Application", "src\Core\Snippr.Application\Snippr.Application.csproj", "{DBC5A6B2-E699-4542-B606-AB20727824F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{84AEB043-F3FE-4552-817D-82D42844BEE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snippr.Mongo", "src\Infrastructure\Snippr.Mongo\Snippr.Mongo.csproj", "{BF24F14F-567A-4A85-A6DB-E75079E54FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snippr.Mongo", "src\Infrastructure\Snippr.Mongo\Snippr.Mongo.csproj", "{BF24F14F-567A-4A85-A6DB-E75079E54FE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{015F91D6-936C-430C-93DE-C11C277F3F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snippr.Startup", "src\Common\Snippr.Startup\Snippr.Startup.csproj", "{36867C17-D006-4985-B2DB-10D94CA1EE5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snippr.Startup", "src\Common\Snippr.Startup\Snippr.Startup.csproj", "{36867C17-D006-4985-B2DB-10D94CA1EE5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snippr.Tests", "src\Common\Snippr.Tests\Snippr.Tests.csproj", "{894C44C0-A589-47B1-B2F6-A12FC253A643}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{36867C17-D006-4985-B2DB-10D94CA1EE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36867C17-D006-4985-B2DB-10D94CA1EE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36867C17-D006-4985-B2DB-10D94CA1EE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{894C44C0-A589-47B1-B2F6-A12FC253A643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894C44C0-A589-47B1-B2F6-A12FC253A643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894C44C0-A589-47B1-B2F6-A12FC253A643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894C44C0-A589-47B1-B2F6-A12FC253A643}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{DBC5A6B2-E699-4542-B606-AB20727824F4} = {8481BB60-1EA8-4653-960B-F58D047AAC10}
 		{BF24F14F-567A-4A85-A6DB-E75079E54FE6} = {84AEB043-F3FE-4552-817D-82D42844BEE2}
 		{36867C17-D006-4985-B2DB-10D94CA1EE5C} = {015F91D6-936C-430C-93DE-C11C277F3F2C}
+		{894C44C0-A589-47B1-B2F6-A12FC253A643} = {015F91D6-936C-430C-93DE-C11C277F3F2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DABD779D-05DD-4658-9E7C-D516120B33A4}
