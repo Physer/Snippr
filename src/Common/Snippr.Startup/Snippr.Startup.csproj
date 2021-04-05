@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Scrutor" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Snippr.Application\Snippr.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Snippr.Domain\Snippr.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Snippr.Mongo\Snippr.Mongo.csproj" />
+  </ItemGroup>
+
 </Project>
