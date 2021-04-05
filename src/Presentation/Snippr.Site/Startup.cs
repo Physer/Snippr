@@ -19,7 +19,8 @@ namespace Snippr.Site
             services.AddRazorPages();
 
             // Custom services
-            services.ConfigureApplicationServices();
+            services.ConfigureCustomOptions(Configuration);
+            services.ConfigureApplicationServices(Configuration);
         }
 
         public void Configure(IApplicationBuilder app)
