@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddHttpClient("Notes", config => config.BaseAddress = new Uri(configuration["Subgraphs:Notes"] ?? string.Empty));
+builder.Services.AddHttpClient("Users", config => config.BaseAddress = new Uri(configuration["Subgraphs:Users"] ?? string.Empty));
 
 builder
     .Services
