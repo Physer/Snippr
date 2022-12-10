@@ -1,5 +1,4 @@
 using API;
-using Application;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +11,7 @@ builder
     .AddQueryType<Query>()
     .InitializeOnStartup()
     .PublishSchemaDefinition(config => config
-                                        .SetName(Constants.Schemas.Notes)
+                                        .SetName("Notes")
                                         .PublishToRedis("Snippr", factory => factory.GetRequiredService<ConnectionMultiplexer>()));
 
 var app = builder.Build();
