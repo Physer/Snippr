@@ -11,8 +11,10 @@ builder
     .AddQueryType<Query>()
     .InitializeOnStartup()
     .PublishSchemaDefinition(config => config
-                                        .SetName("Users")
-                                        .PublishToRedis("Snippr", factory => factory.GetRequiredService<ConnectionMultiplexer>()));
+        .IgnoreRootTypes()
+        .AddTypeExtensionsFromFile("./Stitching.graphql")
+        .SetName("Users")
+        .PublishToRedis("Snippr", factory => factory.GetRequiredService<ConnectionMultiplexer>()));
 
 var app = builder.Build();
 app.MapGraphQL();

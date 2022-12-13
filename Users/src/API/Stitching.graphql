@@ -1,0 +1,3 @@
+﻿extend type Note {
+    author: User! @delegate(path:"user")
+}
