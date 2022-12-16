@@ -5,4 +5,7 @@ on:
 
 jobs:
   site-ci:
-    uses: Physer/Snippr/Site/.github/workflows/ci.yml
+  steps:
+    - uses: actions/checkout@v3
+    - name: CI - Site
+      uses: Physer/Snippr/Site/.github/workflows/ci.yml
