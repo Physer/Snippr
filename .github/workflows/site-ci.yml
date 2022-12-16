@@ -3,10 +3,6 @@ name: Site CI (NodeJS)
 on:
   push:
 
-defaults:
-  run:
-    working-directory: Site
-
 jobs:
   build:
 
@@ -19,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: Site
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
