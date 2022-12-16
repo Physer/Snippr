@@ -3,6 +3,10 @@ name: Site CI (NodeJS)
 on:
   push:
 
+defaults:
+  run:
+    working-directory: Site
+
 jobs:
   build:
 
