@@ -1,7 +1,8 @@
 name: Site CI (NodeJS)
 
-on:
-  push:
+defaults:
+  run:
+    working-directory: Site
 
 jobs:
   build:
@@ -19,7 +20,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: Site
     - run: yarn install --frozen-lockfile
     - run: yarn lint
     - run: yarn build --if-present
