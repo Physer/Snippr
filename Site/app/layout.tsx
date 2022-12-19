@@ -1,4 +1,5 @@
 import Navigation from "./components/navigation";
+import Toolbar from "./components/toolbar";
 import "./globals.css";
 
 export default function RootLayout({
@@ -10,8 +11,9 @@ export default function RootLayout({
     <html lang="en">
       {}
       <head />
-      <body className="h-screen bg-slate-200 dark:bg-zinc-800 dark:text-slate-200">
+      <body className="h-screen bg-zinc-800 dark:text-slate-200">
         <Navigation />
+        <Toolbar />
         {children}
       </body>
     </html>
