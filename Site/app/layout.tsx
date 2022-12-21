@@ -1,3 +1,4 @@
+import Explorer from "./components/explorer";
 import Navigation from "./components/navigation";
 import Toolbar from "./components/toolbar";
 import "./globals.css";
@@ -13,7 +14,10 @@ export default function RootLayout({
       <head />
       <body className="h-screen bg-zinc-800 dark:text-slate-200">
         <Navigation />
-        <Toolbar />
+        <div className="flex flex-row">
+          <Toolbar />
+          <Explorer />
+        </div>
         {children}
       </body>
     </html>
