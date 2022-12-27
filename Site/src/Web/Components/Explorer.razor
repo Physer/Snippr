@@ -1,8 +1,10 @@
-﻿@using Domain;
+﻿@using Application;
+@using Domain;
+@inject INoteRepository NoteRepository
 
 <aside class="bg-zinc-700 h-screen w-72 pl-10">
     <p class="pt-2">Explorer</p>
-    <ul>
+    <ul class="pt-4">
         @foreach(var note in Notes)
         {
             <li>@note.Name</li>
@@ -11,13 +13,10 @@
 </aside>
 
 @code {
-    public List<Note> Notes = new()
+    public List<Note> Notes = new();
+
+    protected override void OnInitialized()
     {
-        new Note
-        {
-            Name = "test-note.js",
-            Description = "A static test note",
-            Language = "JavaScript"
-        }
-    };
+        Notes = NoteRepository.GetNotes().ToList();
+    }
 } 
