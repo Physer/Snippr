@@ -19,6 +19,10 @@
 		<Folder Include="wwwroot\img\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Domain\Domain.csproj" />
+	</ItemGroup>
+
 	<Target Name="Tailwind" BeforeTargets="Build">
 		<Exec Command="tailwind -i ./wwwroot/css/app.css -o ./wwwroot/css/output.css --minify" />
 	</Target>

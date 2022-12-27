@@ -1,0 +1,23 @@
+﻿@using Domain;
+
+<aside class="bg-zinc-700 h-screen w-72 pl-10">
+    <p class="pt-2">Explorer</p>
+    <ul>
+        @foreach(var note in Notes)
+        {
+            <li>@note.Name</li>
+        }
+    </ul>
+</aside>
+
+@code {
+    public List<Note> Notes = new()
+    {
+        new Note
+        {
+            Name = "test-note.js",
+            Description = "A static test note",
+            Language = "JavaScript"
+        }
+    };
+} 
