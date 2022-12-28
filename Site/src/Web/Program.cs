@@ -1,4 +1,4 @@
-using Infrastructure;
+using Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Web;
@@ -9,6 +9,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.RegisterInfrastructureDependencies();
+builder.Services.RegisterClientDependencies(builder.Configuration);
 
 await builder.Build().RunAsync();

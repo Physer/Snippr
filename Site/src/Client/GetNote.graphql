@@ -1,0 +1,6 @@
+﻿query GetNote {
+	note {
+		name
+		description
+	}
+}
