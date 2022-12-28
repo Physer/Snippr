@@ -4,5 +4,5 @@ namespace Application;
 
 public interface INoteRepository
 {
-    IEnumerable<Note> GetNotes();
+    Task<IEnumerable<Note>> GetNotes();
 }

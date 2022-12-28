@@ -1,23 +1,32 @@
 ﻿using Application;
 using Domain;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace Infrastructure;
 
 public class NoteRepository : INoteRepository
 {
-    public IEnumerable<Note> GetNotes() => new[]
+    private readonly HttpClient _httpClient;
+    private readonly IConfiguration _configuration;
+
+    public NoteRepository(HttpClient httpClient,
+        IConfiguration configuration)
     {
-        new Note
-        {
-            Name = "test-note.js",
-            Description = "A static test note",
-            Language = "JavaScript"
-        },
-        new Note
-        {
-            Name = "another-snippet.cs",
-            Description = "Another static test note",
-            Language = "C#"
-        },
-    };
+        _httpClient = httpClient;
+        _configuration = configuration;
+    }
+
+    public async Task<IEnumerable<Note>> GetNotes()
+    {
+        var baseUrl = _configuration["SnipprApiUrl"];
+        if (string.IsNullOrWhiteSpace(baseUrl))
+            return Enumerable.Empty<Note>();
+
+        var response = await _httpClient.PostAsync(baseUrl, new StringContent(string.Empty));
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("Failure");
+
+        return JsonSerializer.Deserialize<IEnumerable<Note>>(await response.Content.ReadAsStringAsync()) ?? Enumerable.Empty<Note>();
+    }
 }
