@@ -1,5 +1,6 @@
 ﻿@using Domain;
 @inject GatewayClient GatewayClient
+@inject ILogger<Explorer> Logger;
 
 <aside class="bg-zinc-700 h-screen w-72 pl-10">
     <p class="pt-2">Explorer</p>
@@ -16,11 +17,18 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var result = await GatewayClient.GetNote.ExecuteAsync();
-        Notes.Add(new Note
-            {
-                Description = result?.Data?.Note?.Description,
-                Name = result?.Data?.Note?.Name
-            });
+        try
+        {
+            var result = await GatewayClient.GetNote.ExecuteAsync();
+            Notes.Add(new Note
+                {
+                    Description = result?.Data?.Note?.Description,
+                    Name = result?.Data?.Note?.Name
+                });
+        }
+        catch (Exception e)
+        {
+            Logger.LogError("Unable to retrieve notes", e);
+        }
     }
 } 
