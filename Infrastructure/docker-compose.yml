@@ -1,0 +1,28 @@
+---
+services:
+  schema-redis:
+    container_name: snippr-schemas
+    image: redis
+    ports:
+      - 6379:6379
+    networks:
+      - snippr
+  gateway:
+    container_name: gateway
+    build: './../Gateway'
+    ports:
+      - 5000:5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - snippr
+  # notes:
+  #   build: './../Notes'
+  #   ports:
+  #     - 5001:5001
+  # users:
+  #   build: './../Users'
+  #   ports:
+  #     - 5002:5002
+networks:
+  snippr:
